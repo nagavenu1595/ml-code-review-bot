@@ -34,7 +34,7 @@ X_train, X_test = train_test_split(X, y)
 Requires Python 3.9 or newer. There are no runtime dependencies.
 
 ```bash
-git clone https://github.com/<your-username>/mlreview
+git clone https://github.com/nagavenu1595/mlreview
 cd mlreview
 ```
 
