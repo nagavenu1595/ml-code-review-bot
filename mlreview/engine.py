@@ -4,9 +4,11 @@ from .rules.fit_on_test import FitOnTest
 from .rules.seeds import SplitSeed
 from .rules.stratify import SplitStratify
 from .rules.torch_eval import MissingEval, MissingNoGrad
+from .rules.estimator_seed import EstimatorSeed
+from .rules.timeseries import RandomSplitTimeSeries
 
-RULES = [FitBeforeSplit(), FitOnTest(), SplitSeed(),
-         SplitStratify(), MissingEval(), MissingNoGrad()]
+RULES = [FitBeforeSplit(), FitOnTest(), SplitSeed(), SplitStratify(),
+         MissingEval(), MissingNoGrad(), EstimatorSeed(), RandomSplitTimeSeries()]
 
 def review(source: str, rules=None):
     tree = ast.parse(source)
