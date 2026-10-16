@@ -5,10 +5,14 @@ from mlreview.rules.torch_eval import MissingEval, MissingNoGrad
 NO_STRAT = """
 from sklearn.model_selection import train_test_split
 a, b, c, d = train_test_split(X, y, random_state=1)
+model = RandomForestClassifier()
+model.fit(a, c)
 """
-STRAT = """
+STRAT = NO_STRAT.replace("random_state=1", "random_state=1, stratify=y")
+REGRESSION = """
 from sklearn.model_selection import train_test_split
-a, b, c, d = train_test_split(X, y, random_state=1, stratify=y)
+a, b, c, d = train_test_split(X, y, random_state=1)
+LinearRegression().fit(a, c)
 """
 BAD_EVAL = """
 import torch
@@ -29,6 +33,9 @@ def test_missing_stratify():
 
 def test_stratify_ok():
     assert review(STRAT, [SplitStratify()]) == []
+
+def test_regression_not_flagged():
+    assert review(REGRESSION, [SplitStratify()]) == []
 
 def test_eval_missing():
     f = review(BAD_EVAL, [MissingEval(), MissingNoGrad()])

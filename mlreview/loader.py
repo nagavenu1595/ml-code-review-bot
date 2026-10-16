@@ -1,7 +1,20 @@
+import ast
 import json
 
+def _clean(line):
+    s = line.lstrip()
+    if s.startswith(("%", "!")):
+        return line[: len(line) - len(s)] + "pass"
+    return line
+
+def _safe(cell_lines):
+    try:
+        ast.parse("\n".join(cell_lines))
+        return cell_lines
+    except SyntaxError:
+        return [""] * len(cell_lines)   # skip cells that aren't valid Python
+
 def load_source(path):
-    """Return (source, labels). labels[i] describes line i+1, e.g. 'cell 2'."""
     with open(path, encoding="utf-8") as f:
         raw = f.read()
     if not path.endswith(".ipynb"):
@@ -16,9 +29,7 @@ def load_source(path):
         src = cell.get("source", "")
         if isinstance(src, list):
             src = "".join(src)
-        for line in src.splitlines():
-            if line.lstrip().startswith(("%", "!")):
-                line = ""          # Jupyter magics aren't valid Python
+        for line in _safe([_clean(l) for l in src.splitlines()]):
             lines.append(line)
             labels.append(f"cell {n}")
         lines.append("")

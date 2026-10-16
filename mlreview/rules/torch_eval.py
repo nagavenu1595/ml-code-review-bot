@@ -18,7 +18,7 @@ def _first_eval_loop(tree):
     for n in ast.walk(tree):
         if isinstance(n, ast.For):
             names = [x.id for x in ast.walk(n.iter) if isinstance(x, ast.Name)]
-            if any(EVAL_NAME.search(x) for x in names):
+            if any(EVAL_NAME.search(x) and "loader" in x.lower() for x in names):
                 loops.append(n.lineno)
     return min(loops) if loops else None
 

@@ -1,0 +1,33 @@
+C:\Users\nagar\scans\handson-ml3\03_classification.ipynb:709 (cell 142)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\04_training_linear_models.ipynb:638 (cell 54)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\04_training_linear_models.ipynb:678 (cell 58)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\04_training_linear_models.ipynb:712 (cell 59)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\05_support_vector_machines.ipynb:812 (cell 39)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\05_support_vector_machines.ipynb:864 (cell 52)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\06_decision_trees.ipynb:395 (cell 50)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+C:\Users\nagar\scans\handson-ml3\07_ensemble_learning_and_random_forests.ipynb:59 (cell 6)  [ML004] (low)
+    Split feeds a classifier but has no `stratify`. Class proportions may differ between train and test.
+    Fix: Pass `stratify=y`.
+
+8 issue(s) found.
